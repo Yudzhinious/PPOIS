@@ -10,18 +10,19 @@
 #include "Fabricator.h"
 
 class Checkout {
-private:
+protected:
     int order;
     int load;
     double coordinate;
-    std::string name;
+    std::string naming;
     std::vector<Budget> money;
     std::vector<Equipment> equip;
 public:
-    Checkout(int order,int load, double coordinate, std::string name);
+    Checkout(int order ,int load, double coordinate, std::string naming);
     void AddBudget(const Budget& money);
     void AddEquipment(const Equipment& equip);
     void Casher();
+    bool True();
     void ShowCheckout() const;
     void ShowingEquipment() const;
     std::vector<Budget> getMoney();

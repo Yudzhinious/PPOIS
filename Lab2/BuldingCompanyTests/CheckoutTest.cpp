@@ -59,3 +59,18 @@ TEST(CheckoutTest, ShowingEquipmentTest) {
     EXPECT_NE(output.find("Laptop"), std::string::npos);
     EXPECT_NE(output.find("500"), std::string::npos);
 }
+
+TEST(CheckoutTest,OrderZero) {
+    Checkout checkout(0, 5, 123.45, "Checkout1");
+    EXPECT_TRUE(checkout.True());
+}
+
+TEST(CheckoutTest,LoadZero) {
+    Checkout checkout(10, 0, 123.45, "Checkout2");
+    EXPECT_TRUE(checkout.True());
+}
+
+TEST(CheckoutTest,BothNonZero) {
+    Checkout checkout(10, 5, 123.45, "Checkout3");
+    EXPECT_FALSE(checkout.True());
+}

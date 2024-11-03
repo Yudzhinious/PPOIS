@@ -23,3 +23,21 @@ TEST(StaffTest, ShowDeliveryTest) {
 
     EXPECT_NE(output.find("—отрудник возрастом 52 лет занимает должность директор"), std::string::npos);
 }
+TEST(StaffTest, WorkerTest_Over70) {
+    Staff staff("рабочий", 72);
+
+    testing::internal::CaptureStdout();
+    std::string post = staff.Worker(); 
+    std::string output = testing::internal::GetCapturedStdout(); 
+    std::string expectedOutput = "–абочему необходимо предоставить пенсионные выплаты\n";
+
+    EXPECT_EQ(post, "рабочий");
+    EXPECT_EQ(output, expectedOutput);
+}
+
+TEST(StaffTest, WorkerTest_Under70) {
+    Staff staff("рабочий", 65);
+    std::string post = staff.Worker(); 
+
+    EXPECT_EQ(post, " ");
+}

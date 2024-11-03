@@ -1,8 +1,9 @@
 #include "Checkout.h"
-Checkout::Checkout(int order, int load, double coord, std::string name) {
+Checkout::Checkout(int order, int load, double coord, std::string naming) {
     this->order = order;
-    this->load = load;    this->coordinate = coord;
-    this->name = name;
+    this->load = load;    
+    this->coordinate = coord;
+    this->naming = naming;
 }
 void Checkout::AddBudget(const Budget& budget) {
     money.push_back(budget);
@@ -12,16 +13,32 @@ void Checkout::AddEquipment(const Equipment& equipment) {
 }
 void Checkout::Casher() {
     for (int i = 0; i < load; i++) {
-        std::cout << "Заказ содержит в очереди " << order - 8 * i << " заказов, подождите еще " << load - i << " дней" << std::endl;        order -= 8;
+        std::cout << "Заказ содержит в очереди " << order - 8 * i << " заказов, подождите еще " << load - i << " дней" << std::endl;       
+        order -= 8;
     }    std::cout << "Заказ готов к выдаче" << std::endl;
 }
+bool Checkout::True() {
+    if (order == 0) {
+        return true;
+    }
+    else {
+        if (load == 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
 void Checkout::ShowCheckout() const {
-    std::cout << "Касса " << name << " с расположением " << coordinate << " содержит в очереди " << order << " заказов c задержкой в " << load << " дней " << std::endl;    for (const auto& budget : money) {
+    std::cout << "Касса " << naming << " с расположением " << coordinate << " содержит в очереди " << order << " заказов c задержкой в " << load << " дней " << std::endl;    
+    for (const auto& budget : money) {
         budget.ShowInfo();
     }
 }
 void Checkout::ShowingEquipment() const {
-    std::cout << "Касса " << name << " с расположением " << coordinate << " содержит в очереди " << order << " заказов c задержкой в " << load << " дней " << std::endl;    for (const auto& equipment : equip) {
+    std::cout << "Касса " << naming << " с расположением " << coordinate << " содержит в очереди " << order << " заказов c задержкой в " << load << " дней " << std::endl;    
+    for (const auto& equipment : equip) {
         equipment.ShowEquipmentForRental();
     }
 }

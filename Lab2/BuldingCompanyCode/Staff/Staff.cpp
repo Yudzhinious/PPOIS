@@ -15,7 +15,15 @@ void Staff::ShowingDelivery() const {
         deliver.ShowDelivery();
     }
 }
-
+std::string Staff::Worker() {
+    if (age > 70) {
+        std::cout << "Рабочему необходимо предоставить пенсионные выплаты" << std::endl;
+        return post;
+    }
+    else {
+        return " ";
+    }
+}
 std::vector<Delivery> Staff::getDelivery()
 {
     return delivery;

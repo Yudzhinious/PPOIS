@@ -15,5 +15,6 @@ public:
     Staff(std::string post, int age);
     void AddDelivery(const Delivery& delivery);
     void ShowingDelivery() const;
+    std::string Worker();
     std::vector<Delivery> getDelivery();
 };
