@@ -19,12 +19,12 @@ protected:
     std::vector<Equipment> equip;
 public:
     Checkout(int order ,int load, double coordinate, std::string naming);
-    void AddBudget(const Budget& money);
-    void AddEquipment(const Equipment& equip);
+    void AddBudget(Budget& money);
+    void AddEquipment(Equipment& equip);
     void Casher();
     bool True();
-    void ShowCheckout() const;
-    void ShowingEquipment() const;
+    void ShowCheckout();
+    void ShowingEquipment();
     std::vector<Budget> getMoney();
     std::vector<Equipment> getEquip();
 };

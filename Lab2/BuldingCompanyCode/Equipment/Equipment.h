@@ -12,11 +12,11 @@ private:
     std::vector<Things> things;
 public:
     Equipment(std::string source, int cash);
-    void AddTransportRental(const TransportRental& rental);
-    void AddThings(const Things& thing);
+    void AddTransportRental(TransportRental& rental);
+    void AddThings(Things& thing);
     void IsEnough();
-    void ShowEquipmentForRental() const;
-    void ShowEquipmentForThings() const;
+    void ShowEquipmentForRental();
+    void ShowEquipmentForThings();
     std::vector<TransportRental> getRentals();
     std::vector<Things> getThings();
 };

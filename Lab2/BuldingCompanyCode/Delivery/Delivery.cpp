@@ -8,14 +8,14 @@ Delivery::Delivery(int price, double speed, std::string s_p, std::string f_p) {
     this->finish_place = f_p;
 }
 
-void Delivery::AddClient(const Client& clients) {
-    people.push_back(clients);
+void Delivery::AddClient(Client& clients) {
+    people.push_back(std::move(clients));
 }
 
-void Delivery::ShowDelivery() const {
+void Delivery::ShowDelivery() {
     std::cout << "Стоимость доставки за " << speed << " часов из точки " << start_place << " в точку "<< finish_place << " будет стоить " << price << " рублей" << std::endl;
-    for (const auto& client : people) {
-        client.ShowInfo();
+    for (auto it = people.begin(); it != people.end(); ++it) {
+        it->ShowInfo();
     }
 }
 std::vector<Client> Delivery::getClient() {

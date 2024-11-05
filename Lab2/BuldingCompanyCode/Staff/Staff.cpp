@@ -5,14 +5,14 @@ Staff::Staff(std::string post , int age)  {
     this->post = post;
     this->age = age;
 }
-void Staff::AddDelivery(const Delivery& deliveries) {
-    delivery.push_back(deliveries);
+void Staff::AddDelivery(Delivery& deliveries) {
+    delivery.push_back(std::move(deliveries));
 }
 
-void Staff::ShowingDelivery() const {
+void Staff::ShowingDelivery(){
     std::cout << "—отрудник возрастом " << age << " лет занимает должность " << post << std::endl;
-    for (const auto& deliver : delivery) {
-        deliver.ShowDelivery();
+    for (auto it = delivery.begin(); it != delivery.end(); ++it) {
+        it->ShowDelivery();
     }
 }
 std::string Staff::Worker() {

@@ -11,7 +11,7 @@ private:
     std::vector<Material> materials; 
 public:
     Product(int product_price, std::string product_name);
-    void AddMaterial(const Material& material);
-    void ShowProduct() const;
+    void AddMaterial(Material& material);
+    void ShowProduct();
     std::vector<Material> getMaterials();
 };

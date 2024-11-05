@@ -11,9 +11,9 @@ private:
     std::vector<Storage> storages;
 public:
     SectionsOfDepartment (int number, std::string name_of_section);
-    void ShowSectionsOfDepartment() const;
+    void ShowSectionsOfDepartment();
     void EditSection();
     void ShareSection();
-    void AddStorage(const Storage& storages);
+    void AddStorage(Storage& storages);
     std::vector<Storage> getStorages();
 };

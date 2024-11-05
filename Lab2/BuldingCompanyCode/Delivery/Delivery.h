@@ -13,7 +13,7 @@ private:
     std::vector<Client> people;
 public:
     Delivery(int price, double speed, std::string start_place, std::string finish_place);
-    void AddClient(const Client& peoples);
-    void ShowDelivery() const;
+    void AddClient(Client& peoples);
+    void ShowDelivery();
     std::vector<Client> getClient();
 };

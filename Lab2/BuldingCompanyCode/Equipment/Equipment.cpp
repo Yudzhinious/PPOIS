@@ -4,10 +4,10 @@ Equipment::Equipment(std::string source, int cash) {
     this->source = source;
     this->cash = cash;
 }
-void Equipment::ShowEquipmentForRental() const {
+void Equipment::ShowEquipmentForRental(){
     std::cout << "Необходимо купить оборудование " << source << " на сумму " << cash << " рублей." << std::endl;    
-    for (const auto& rental : rentals) {
-        rental.ShowHelp_1();
+    for (auto it = rentals.begin(); it != rentals.end(); ++it) {
+        it->ShowHelp_1();
     }
 }
 void Equipment::IsEnough() {
@@ -20,17 +20,17 @@ void Equipment::IsEnough() {
         std::cout << "Недостаточно средств для закупки оборудования. Покупка отклонена " << std::endl;
     }
 }
-void Equipment::AddTransportRental(const TransportRental& rental) {
-    rentals.push_back(rental);
+void Equipment::AddTransportRental(TransportRental& rental) {
+    rentals.push_back(std::move(rental));
 }
-void Equipment::ShowEquipmentForThings() const {
+void Equipment::ShowEquipmentForThings() {
     std::cout << "Необходимо купить оборудование " << source << " на сумму " << cash << " рублей." << std::endl;
-    for (const auto& thing : things) {
-        thing.ShowHelp_2();
+    for (auto it = things.begin(); it != things.end(); ++it) {
+        it->ShowHelp_2();
     }
 }
-void Equipment::AddThings(const Things& thing) {
-    things.push_back(thing);
+void Equipment::AddThings(Things& thing) {
+    things.push_back(std::move(thing));
 }
 std::vector<TransportRental> Equipment::getRentals() {
     return rentals;

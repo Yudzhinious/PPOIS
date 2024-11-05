@@ -4,22 +4,22 @@ Company::Company(int exp, std::string name, std::string name2, int year) : Owner
     this->logo = name2;
     this->year_of_foundation = year;
 }
-void Company::AddSectionsOfDepartment(const SectionsOfDepartment& section) {
-    sections.push_back(section);
+void Company::AddSectionsOfDepartment(SectionsOfDepartment& section) {
+    sections.push_back(std::move(section));
 }
-void Company::AddProduct(const Product& product) {
-    products.push_back(product);
+void Company::AddProduct(Product& product) {
+    products.push_back(std::move(product));
 }
-void Company::ShowingProduct() const {
+void Company::ShowingProduct() {
     std::cout << "Строительная компания " << logo << " была создана в " << year_of_foundation << " году" << std::endl;
-    for (const auto& product : products) {
-        product.ShowProduct();
+    for (auto it = products.begin(); it != products.end(); ++it) {
+        it->ShowProduct();
     }
 }
-void Company::ShowingSectionsOfDepartment() const {
+void Company::ShowingSectionsOfDepartment() {
     std::cout << "Строительная компания " << logo << " была создана в " << year_of_foundation << std::endl;
-    for (const auto& SectionsOfDepartment : sections) {
-        SectionsOfDepartment.ShowSectionsOfDepartment();
+    for (auto it = sections.begin(); it != sections.end(); ++it) {
+        it->ShowSectionsOfDepartment();
     }
 }
 

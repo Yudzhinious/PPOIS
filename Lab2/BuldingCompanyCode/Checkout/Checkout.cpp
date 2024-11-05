@@ -5,11 +5,11 @@ Checkout::Checkout(int order, int load, double coord, std::string naming) {
     this->coordinate = coord;
     this->naming = naming;
 }
-void Checkout::AddBudget(const Budget& budget) {
-    money.push_back(budget);
+void Checkout::AddBudget(Budget& budget) {
+    money.push_back(std::move(budget));
 }
-void Checkout::AddEquipment(const Equipment& equipment) {
-    equip.push_back(equipment);
+void Checkout::AddEquipment(Equipment& equipment) {
+    equip.push_back(std::move(equipment));
 }
 void Checkout::Casher() {
     for (int i = 0; i < load; i++) {
@@ -30,16 +30,17 @@ bool Checkout::True() {
         }
     }
 }
-void Checkout::ShowCheckout() const {
-    std::cout << "Касса " << naming << " с расположением " << coordinate << " содержит в очереди " << order << " заказов c задержкой в " << load << " дней " << std::endl;    
-    for (const auto& budget : money) {
-        budget.ShowInfo();
+void Checkout::ShowCheckout() {
+    std::cout << "Касса " << naming << " с расположением " << coordinate << " содержит в очереди " << order << " заказов c задержкой в "<< load << " дней " << std::endl;
+    for (auto it = money.begin(); it != money.end(); ++it) {
+        it->ShowInfo();
     }
 }
-void Checkout::ShowingEquipment() const {
-    std::cout << "Касса " << naming << " с расположением " << coordinate << " содержит в очереди " << order << " заказов c задержкой в " << load << " дней " << std::endl;    
-    for (const auto& equipment : equip) {
-        equipment.ShowEquipmentForRental();
+
+void Checkout::ShowingEquipment(){
+    std::cout << "Касса " << naming << " с расположением " << coordinate << " содержит в очереди " << order << " заказов c задержкой в " << load << " дней " << std::endl;  
+    for (auto it = equip.begin(); it != equip.end(); ++it) {
+        it->ShowEquipmentForRental();
     }
 }
 std::vector<Budget> Checkout::getMoney() {

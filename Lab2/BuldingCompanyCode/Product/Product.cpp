@@ -5,14 +5,14 @@ Product::Product(int price, std::string name) {
     this->product_name = name;
 }
 
-void Product::AddMaterial(const Material& material) {
-    materials.push_back(material);
+void Product::AddMaterial(Material& material) {
+    materials.push_back(std::move(material));
 }
 
-void Product::ShowProduct() const {
+void Product::ShowProduct() {
     std::cout << "Был закуплен товар " << product_name << " на сумму " << product_price << " рублей." << std::endl;
-    for (const auto& material : materials) {
-        material.ShowInfo();
+    for (auto it = materials.begin(); it != materials.end(); ++it) {
+        it->ShowInfo();
     }
 }
 std::vector<Material> Product::getMaterials()

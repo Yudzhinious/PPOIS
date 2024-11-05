@@ -13,8 +13,8 @@ private:
     std::vector<Delivery> delivery;
 public:
     Staff(std::string post, int age);
-    void AddDelivery(const Delivery& delivery);
-    void ShowingDelivery() const;
+    void AddDelivery(Delivery& delivery);
+    void ShowingDelivery();
     std::string Worker();
     std::vector<Delivery> getDelivery();
 };
