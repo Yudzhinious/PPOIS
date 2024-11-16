@@ -9,10 +9,10 @@
 
 class Genre {
 protected:
-    int capacity;
-    std::string name;
-    std::string name_1;
-    std::string name_2;
+    int amount;
+    std::string LibName;
+    std::string GenreName;
+    std::string author;
     std::vector<Fantastics> fantastics;
     std::vector<Novel> novels;
     std::vector<Scientific> scientifics;
@@ -20,7 +20,7 @@ public:
     void AddFantastics(Fantastics& fantastic);
     void AddNovel(Novel& novel);
     void AddScientific(Scientific& scientific);
-    Genre(int capacity, std::string name, std::string name_1, std::string name_2);
+    Genre(int amount, std::string LibName, std::string GenreName, std::string author);
     void ShowInfoGenre();
     void RemoveBookFromGenre(const std::string& genre, int index);
     std::vector<Fantastics> getFantastics();

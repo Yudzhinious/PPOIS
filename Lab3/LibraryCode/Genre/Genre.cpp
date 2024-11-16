@@ -1,13 +1,13 @@
 #include "Genre.h"
-Genre::Genre(int capacity, std::string name, std::string name_1, std::string name_2) {
-    this->capacity = capacity;
-    this->name = name;
-    this->name_1 = name_1;
-    this->name_2 = name_2;
+Genre::Genre(int amount, std::string LibName, std::string GenreName, std::string author) {
+    this->amount = amount;
+    this->LibName = LibName;
+    this->GenreName = GenreName;
+    this->author = author;
 }
 
 void Genre::ShowInfoGenre() {
-    std::cout << "Библиотека представлена " << capacity << " жанрами, в том числе" << name << name_1 << name_2 << std::endl;
+    std::cout << "Библиотека" << LibName << "представлена " << amount << " жанрами, в том числе" << GenreName << " автора " << author << std::endl;
     for (auto it = fantastics.begin(); it != fantastics.end(); ++it) {
         it->ShowInfo();
     }
