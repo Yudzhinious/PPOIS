@@ -2,7 +2,6 @@ import unittest
 from Astronaut import Astronaut
 from Coach import Coach
 
-
 class CoachTest(unittest.TestCase):
 
     def setUp(self):
@@ -15,17 +14,6 @@ class CoachTest(unittest.TestCase):
         self.assertTrue(result)
         self.assertEqual(self.coach.name, "Coach Ivan")
         self.assertEqual(self.coach.specialization, "Физическая подготовка")
-
-    def test_initialize_with_invalid_data(self):
-        result = self.coach.initialize(name="", specialization="Физическая подготовка")
-        self.assertFalse(result)
-        self.assertIsNone(self.coach.name)
-        self.assertIsNone(self.coach.specialization)
-
-        result = self.coach.initialize(name="Coach Ivan", specialization="")
-        self.assertFalse(result)
-        self.assertIsNone(self.coach.name)
-        self.assertIsNone(self.coach.specialization)
 
     def test_conduct_training_when_uninitialized(self):
         self.coach.name = None

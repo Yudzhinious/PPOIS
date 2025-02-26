@@ -28,8 +28,9 @@ class SpaceMissionTest(unittest.TestCase):
         self.assertEqual(self.astronaut1.condition, "Готов")
 
     def test_astronaut_train(self):
-        self.coach.conduct_training(self.astronaut1, "Физическая подготовка", 2)
-        self.assertEqual(self.astronaut1.condition, "Готов")
+        self.coach.name = "Coach Ivan"
+        self.astronaut1.train(self.coach)
+        self.assertEqual(self.astronaut1.condition, "Устал")
 
     def test_astronaut_use_equipment(self):
         if self.equipment:

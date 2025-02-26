@@ -1,16 +1,16 @@
 from Astronaut import Astronaut
 
 class Simulator:
-    def __init__(self, sim_type: str = None):
+    def __init__(self, sim_type: str = None) -> None:
         self.sim_type = sim_type
         self.condition = "Готов"
 
-    def start_simulation(self, astronaut: Astronaut):
+    def start_simulation(self, astronaut: Astronaut) -> None:
         print("Запуск симуляции", self.sim_type, "для", astronaut.name)
         self.condition = "В процессе"
         astronaut.condition = "В симуляции"
 
-    def end_simulation(self, astronaut: Astronaut):
+    def end_simulation(self, astronaut: Astronaut) -> None:
         if self.sim_type is None:
             print("Ошибка: тип симулятора не задан.")
             return
@@ -18,7 +18,7 @@ class Simulator:
         self.condition = "Готов"
         astronaut.condition = "Готов"
 
-    def train_astronaut(self, astronaut: Astronaut):
+    def train_astronaut(self, astronaut: Astronaut) -> None:
 
         if self.sim_type is None:
             print("Ошибка: тип симулятора не задан.")

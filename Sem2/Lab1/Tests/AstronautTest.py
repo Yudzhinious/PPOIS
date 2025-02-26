@@ -18,9 +18,11 @@ class AstronautTest(unittest.TestCase):
         self.assertEqual(self.astronaut.condition, "Готов")
 
     def test_train(self):
-        initial_training_level = self.astronaut.training_level
-        self.coach.conduct_training(self.astronaut, "Физическая подготовка", 2)
-        self.assertEqual(self.astronaut.condition, "Готов")
+        initial_condition = self.astronaut.condition
+
+        self.coach.name = "Coach Ivan"
+        self.astronaut.train(self.coach)
+        self.assertEqual(self.astronaut.condition, "Устал")
 
     def test_use_equipment(self):
         self.astronaut.use_equipment(self.equipment)

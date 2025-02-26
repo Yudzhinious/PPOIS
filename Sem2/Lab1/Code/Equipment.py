@@ -1,30 +1,30 @@
 class Equipment:
-    def __init__(self, name=None, eq_type=None):
+    def __init__(self, name=None, eq_type=None) -> None:
         self.name = name
         self.eq_type = eq_type
         self.condition = "Исправен"
 
-    def use(self):
+    def use(self) -> None:
         if not self.is_initialized():
             print("Оборудование не инициализировано.")
             return
         print(f"Оборудование {self.name} используется.")
         self.condition = "В использовании"
 
-    def check_condition(self):
+    def check_condition(self) -> None:
         if not self.is_initialized():
             print("Оборудование не инициализировано.")
             return
         print(f"Состояние оборудования {self.name}: {self.condition}")
 
-    def update_condition(self, new_condition: str):
+    def update_condition(self, new_condition: str) -> None:
         if not self.is_initialized():
             print("Оборудование не инициализировано.")
             return
         self.condition = new_condition
         print(f"Состояние оборудования {self.name} изменено на: {new_condition}")
 
-    def train_usage(self):
+    def train_usage(self) -> None:
         if not self.is_initialized():
             print("Оборудование не инициализировано.")
             return
@@ -37,12 +37,12 @@ class Equipment:
         input("Нажмите Enter для завершения обучения...")
         print(f"Обучение работе с {self.name} завершено успешно!")
 
-    def __str__(self):
+    def __str__(self) -> str:
         if not self.is_initialized():
             return "Оборудование не инициализировано."
         return f"Оборудование {self.name} (Тип: {self.eq_type}, Состояние: {self.condition})"
 
-    def is_initialized(self):
+    def is_initialized(self) -> bool:
         return self.name is not None and self.eq_type is not None
 
 
