@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from Equipment import Equipment, rename_equipment, equip_equipment
+from equipment import Equipment, rename_equipment, equip_equipment
 
 
 class TestEquipment(unittest.TestCase):

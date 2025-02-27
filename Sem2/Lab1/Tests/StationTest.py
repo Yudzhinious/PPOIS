@@ -1,8 +1,8 @@
 import unittest
-from Coach import Coach
-from Astronaut import Astronaut
-from Equipment import Equipment
-from Station import SpaceStation
+from coach import Coach
+from astronaut import Astronaut
+from equipment import Equipment
+from station import SpaceStation
 
 class SpaceStationTest(unittest.TestCase):
 

@@ -1,6 +1,6 @@
-from Coach import Coach
-from Astronaut import Astronaut
-from Equipment import Equipment
+from coach import Coach
+from astronaut import Astronaut
+from equipment import Equipment
 from typing import List
 
 class SpaceStation:

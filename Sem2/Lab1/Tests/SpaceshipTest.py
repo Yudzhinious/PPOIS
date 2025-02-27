@@ -1,5 +1,5 @@
 import unittest
-from Spaceship import Spaceship
+from spaceship import Spaceship
 
 class SpaceshipTest(unittest.TestCase):
 

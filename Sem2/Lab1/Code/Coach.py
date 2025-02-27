@@ -1,4 +1,4 @@
-from Astronaut import Astronaut
+from astronaut import Astronaut
 class Coach:
     def __init__(self) -> None:
         self.name = None
@@ -18,7 +18,7 @@ class Coach:
                 raise ValueError("Тренер не инициализирован.")
         except ValueError as e:
             print("Ошибка:", e)
-            return
+
         print("Тренер", self.name, "оценивает подготовку", astronaut.name)
         if astronaut.training_level > skill_level_threshold:
             print(astronaut.name, "готов к миссии.")

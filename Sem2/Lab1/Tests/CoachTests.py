@@ -1,6 +1,6 @@
 import unittest
-from Astronaut import Astronaut
-from Coach import Coach
+from astronaut import Astronaut
+from coach import Coach
 
 class CoachTest(unittest.TestCase):
 

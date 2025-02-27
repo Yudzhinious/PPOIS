@@ -1,7 +1,7 @@
 import unittest
-from Astronaut import Astronaut
-from Coach import Coach
-from Equipment import Equipment
+from astronaut import Astronaut
+from coach import Coach
+from equipment import Equipment
 
 class AstronautTest(unittest.TestCase):
 

@@ -1,4 +1,4 @@
-from Astronaut import Astronaut
+from astronaut import Astronaut
 
 class Simulator:
     def __init__(self, sim_type: str = None) -> None:

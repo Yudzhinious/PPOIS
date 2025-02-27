@@ -1,6 +1,6 @@
 import unittest
-from Astronaut import Astronaut
-from Simulator import Simulator
+from astronaut import Astronaut
+from simulator import Simulator
 
 class SimulatorTest(unittest.TestCase):
     def setUp(self):
